@@ -1,5 +1,6 @@
 import { Navbar } from "@/components/navbar"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { InterestConnectionsCard } from "@/components/interest-connections-card"
 
 export default function Home() {
   return (
@@ -15,7 +16,7 @@ export default function Home() {
             <TabsTrigger value="account">Customer Account</TabsTrigger>
           </TabsList>
           <TabsContent value="overview" className="mt-6">
-            <p className="text-gray-600">Interest Overview content will go here</p>
+            <InterestConnectionsCard />
           </TabsContent>
           <TabsContent value="account" className="mt-6">
             <p className="text-gray-600">Customer Account content will go here</p>
