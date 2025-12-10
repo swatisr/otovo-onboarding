@@ -2,6 +2,14 @@ import { Navbar } from "@/components/navbar"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { InterestConnectionsCard } from "@/components/interest-connections-card"
 
+// Mock data - in real app, this would come from API
+const mockInterest = {
+  firstName: "Swati",
+  lastName: "Srivastava",
+  email: "swatisr@otovo.com",
+  phone: "+1 234 567 8900",
+}
+
 export default function Home() {
   return (
     <div className="min-h-screen bg-white">
@@ -19,7 +27,7 @@ export default function Home() {
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
               {/* Left Column - Wider (2/3) */}
               <div className="lg:col-span-2 space-y-6">
-                <InterestConnectionsCard />
+                <InterestConnectionsCard interest={mockInterest} />
                 {/* More cards will go here */}
               </div>
               {/* Right Column - Narrower (1/3) */}
