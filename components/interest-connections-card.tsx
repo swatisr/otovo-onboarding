@@ -4,6 +4,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
+import { Button } from "@/components/ui/button"
 
 interface Interest {
   firstName: string
@@ -45,6 +46,21 @@ export function InterestConnectionsCard({
             </div>
           </div>
         )}
+
+        {/* Details Section Header - Step 2.2 */}
+        <div className="flex items-center justify-between">
+          <h3 className="text-sm font-medium text-gray-700">
+            Details provided by Interest in the activation form
+          </h3>
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={() => console.log("Edit clicked")}
+            className="text-blue-600 hover:text-blue-700"
+          >
+            Edit
+          </Button>
+        </div>
 
         {/* Contact Details - existing */}
         <div className="space-y-4">
