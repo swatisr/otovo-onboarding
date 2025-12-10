@@ -8,6 +8,8 @@ const mockInterest = {
   lastName: "Srivastava",
   email: "swatisr@otovo.com",
   phone: "+1 234 567 8900",
+  similarInterestsCount: 5,
+  similarUsersCount: 1,
 }
 
 export default function Home() {
