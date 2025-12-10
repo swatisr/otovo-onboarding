@@ -7,7 +7,7 @@ import {
 
 export function InterestConnectionsCard() {
   return (
-    <Card>
+    <Card className="w-full max-w-md">
       <CardHeader>
         <CardTitle>Interest Connections</CardTitle>
       </CardHeader>

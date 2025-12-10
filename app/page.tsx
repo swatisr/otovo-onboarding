@@ -16,7 +16,17 @@ export default function Home() {
             <TabsTrigger value="account">Customer Account</TabsTrigger>
           </TabsList>
           <TabsContent value="overview" className="mt-6">
-            <InterestConnectionsCard />
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+              {/* Left Column - Wider (2/3) */}
+              <div className="lg:col-span-2 space-y-6">
+                <InterestConnectionsCard />
+                {/* More cards will go here */}
+              </div>
+              {/* Right Column - Narrower (1/3) */}
+              <div className="lg:col-span-1 space-y-6">
+                {/* Right column cards will go here */}
+              </div>
+            </div>
           </TabsContent>
           <TabsContent value="account" className="mt-6">
             <p className="text-gray-600">Customer Account content will go here</p>
