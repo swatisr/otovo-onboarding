@@ -35,6 +35,7 @@ export function InterestConnectionsCard({
   interest,
 }: InterestConnectionsCardProps) {
   const [isSlideoverOpen, setIsSlideoverOpen] = useState(false)
+  const [isAssignSlideoverOpen, setIsAssignSlideoverOpen] = useState(false)
   const hasSimilarMatches =
     (interest.similarInterestsCount && interest.similarInterestsCount > 0) ||
     (interest.similarUsersCount && interest.similarUsersCount > 0)
@@ -42,7 +43,7 @@ export function InterestConnectionsCard({
   return (
     <Card className="w-full max-w-md">
       <CardHeader>
-        <CardTitle>Interest connection</CardTitle>
+        <CardTitle>Connect to customer account</CardTitle>
       </CardHeader>
       <CardContent className="space-y-6">
         {/* Alert Banner - Red warning with action link */}
@@ -125,15 +126,39 @@ export function InterestConnectionsCard({
         >
           Connect to customer account
         </Button>
+
+        {/* Assign Button */}
+        <Button
+          onClick={() => setIsAssignSlideoverOpen(true)}
+          variant="outline"
+          className="w-full mt-3"
+        >
+          Assign a customer account
+        </Button>
       </CardContent>
 
-      {/* Slide-over */}
+      {/* Connect Slide-over */}
       <Sheet open={isSlideoverOpen} onOpenChange={setIsSlideoverOpen}>
         <SheetContent>
           <SheetHeader>
             <SheetTitle>Connect to customer account</SheetTitle>
             <SheetDescription>
               Connect this interest to a new or existing customer account.
+            </SheetDescription>
+          </SheetHeader>
+          <div className="mt-6">
+            {/* Content will go here */}
+          </div>
+        </SheetContent>
+      </Sheet>
+
+      {/* Assign Slide-over */}
+      <Sheet open={isAssignSlideoverOpen} onOpenChange={setIsAssignSlideoverOpen}>
+        <SheetContent>
+          <SheetHeader>
+            <SheetTitle>Assign a customer account</SheetTitle>
+            <SheetDescription>
+              Assign this interest to a customer account.
             </SheetDescription>
           </SheetHeader>
           <div className="mt-6">
