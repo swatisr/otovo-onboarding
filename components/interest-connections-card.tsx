@@ -7,6 +7,7 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
+import { Separator } from "@/components/ui/separator"
 
 interface Interest {
   firstName: string
@@ -31,7 +32,7 @@ export function InterestConnectionsCard({
   return (
     <Card className="w-full max-w-md">
       <CardHeader>
-        <CardTitle>Interest Connections</CardTitle>
+        <CardTitle>Interest connection</CardTitle>
       </CardHeader>
       <CardContent className="space-y-4">
         {/* Alert Banner - Step 2.1 */}
@@ -64,15 +65,47 @@ export function InterestConnectionsCard({
           </Button>
         </div>
 
-        {/* Contact Details - existing */}
-        <div className="space-y-4">
-          <div>
-            <p className="text-xs text-gray-500">First Name</p>
-            <p className="text-sm font-medium text-gray-900">
-              {interest.firstName}
-            </p>
+        {/* Contact Details - Step 2.3 */}
+        <div className="space-y-3">
+          <div className="flex items-start justify-between">
+            <div className="flex-1">
+              <p className="text-xs font-medium text-gray-900">Name</p>
+              <p className="text-sm text-gray-500 mt-1">
+                {interest.firstName} {interest.lastName}
+              </p>
+            </div>
+          </div>
+          <div className="flex items-start justify-between gap-4">
+            <div className="flex-1">
+              <p className="text-xs font-medium text-gray-900">Email</p>
+              <p className="text-sm text-gray-500 mt-1">{interest.email}</p>
+            </div>
+            <div className="flex-1 text-right">
+              <p className="text-xs font-medium text-gray-900">Phone</p>
+              <p className="text-sm text-gray-500 mt-1">{interest.phone}</p>
+            </div>
           </div>
         </div>
+
+        <Separator />
+
+        {/* Connection Status Section - Step 2.4 */}
+        <div className="space-y-2">
+          <h3 className="text-sm font-medium text-gray-900">
+            Connecting customer account
+          </h3>
+          <p className="text-sm text-gray-500">
+            Not connected to an account yet
+          </p>
+        </div>
+
+        {/* Action Button - Step 2.5 */}
+        <Button
+          onClick={() => console.log("Connect to account clicked")}
+          className="w-full bg-[#1B2438] hover:bg-[#1B2438]/90 text-white"
+        >
+          Connect to a customer account
+        </Button>
       </CardContent>
     </Card>
   )
