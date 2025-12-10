@@ -1,6 +1,5 @@
 "use client"
 
-import { useState } from "react"
 import {
   Card,
   CardContent,
@@ -10,7 +9,6 @@ import {
 import { Button } from "@/components/ui/button"
 import { Separator } from "@/components/ui/separator"
 import { AlertTriangle } from "lucide-react"
-import { ConnectAccountSlideover } from "@/components/connect-account-slideover"
 
 interface Interest {
   firstName: string
@@ -28,7 +26,6 @@ interface InterestConnectionsCardProps {
 export function InterestConnectionsCard({
   interest,
 }: InterestConnectionsCardProps) {
-  const [isSlideoverOpen, setIsSlideoverOpen] = useState(false)
   const hasSimilarMatches =
     (interest.similarInterestsCount && interest.similarInterestsCount > 0) ||
     (interest.similarUsersCount && interest.similarUsersCount > 0)
@@ -36,7 +33,7 @@ export function InterestConnectionsCard({
   return (
     <Card className="w-full max-w-md">
       <CardHeader>
-        <CardTitle>Connect to customer account</CardTitle>
+        <CardTitle>Interest connection</CardTitle>
       </CardHeader>
       <CardContent className="space-y-6">
         {/* Alert Banner - Red warning with action link */}
@@ -114,18 +111,12 @@ export function InterestConnectionsCard({
 
         {/* Action Button */}
         <Button
-          onClick={() => setIsSlideoverOpen(true)}
+          onClick={() => console.log("Connect to account clicked")}
           className="w-full bg-[#1B2438] hover:bg-[#1B2438]/90 text-white mt-6"
         >
           Connect to customer account
         </Button>
       </CardContent>
-
-      {/* Empty Slide-over */}
-      <ConnectAccountSlideover
-        open={isSlideoverOpen}
-        onOpenChange={setIsSlideoverOpen}
-      />
     </Card>
   )
 }
