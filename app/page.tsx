@@ -1,4 +1,5 @@
 import { Navbar } from "@/components/navbar"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
 export default function Home() {
   return (
@@ -8,7 +9,18 @@ export default function Home() {
         <h1 className="text-3xl font-semibold text-gray-900 mb-6">
           Interest Details
         </h1>
-        <p className="text-gray-600">Page content will go here</p>
+        <Tabs defaultValue="overview" className="w-full">
+          <TabsList>
+            <TabsTrigger value="overview">Interest Overview</TabsTrigger>
+            <TabsTrigger value="account">Customer Account</TabsTrigger>
+          </TabsList>
+          <TabsContent value="overview" className="mt-6">
+            <p className="text-gray-600">Interest Overview content will go here</p>
+          </TabsContent>
+          <TabsContent value="account" className="mt-6">
+            <p className="text-gray-600">Customer Account content will go here</p>
+          </TabsContent>
+        </Tabs>
       </main>
     </div>
   )
