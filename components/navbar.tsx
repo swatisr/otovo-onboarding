@@ -1,7 +1,6 @@
 "use client"
 
 import { ChevronDown } from "lucide-react"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -81,27 +80,24 @@ export function Navbar() {
         <div className="flex items-center gap-3">
           <DropdownMenu>
             <DropdownMenuTrigger className="flex items-center gap-3 focus:outline-none">
-              <Avatar>
-                <AvatarImage src="" alt="User" />
-                <AvatarFallback className="bg-gray-200">
-                  <svg
-                    width="20"
-                    height="20"
-                    viewBox="0 0 20 20"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M10 10C12.7614 10 15 7.76142 15 5C15 2.23858 12.7614 0 10 0C7.23858 0 5 2.23858 5 5C5 7.76142 7.23858 10 10 10Z"
-                      fill="#6B7280"
-                    />
-                    <path
-                      d="M10 12C5.58172 12 2 14.6863 2 18V20H18V18C18 14.6863 14.4183 12 10 12Z"
-                      fill="#6B7280"
-                    />
-                  </svg>
-                </AvatarFallback>
-              </Avatar>
+              <div className="h-10 w-10 rounded-full bg-gray-200 flex items-center justify-center">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 20 20"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M10 10C12.7614 10 15 7.76142 15 5C15 2.23858 12.7614 0 10 0C7.23858 0 5 2.23858 5 5C5 7.76142 7.23858 10 10 10Z"
+                    fill="#6B7280"
+                  />
+                  <path
+                    d="M10 12C5.58172 12 2 14.6863 2 18V20H18V18C18 14.6863 14.4183 12 10 12Z"
+                    fill="#6B7280"
+                  />
+                </svg>
+              </div>
               <div className="hidden md:block text-left">
                 <div className="text-sm font-medium text-gray-900">
                   Swati Srivastava
