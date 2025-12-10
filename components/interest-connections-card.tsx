@@ -1,5 +1,6 @@
 "use client"
 
+import { useState } from "react"
 import {
   Card,
   CardContent,
@@ -8,6 +9,13 @@ import {
 } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Separator } from "@/components/ui/separator"
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+} from "@/components/ui/sheet"
 import { AlertTriangle } from "lucide-react"
 
 interface Interest {
@@ -26,6 +34,7 @@ interface InterestConnectionsCardProps {
 export function InterestConnectionsCard({
   interest,
 }: InterestConnectionsCardProps) {
+  const [isSlideoverOpen, setIsSlideoverOpen] = useState(false)
   const hasSimilarMatches =
     (interest.similarInterestsCount && interest.similarInterestsCount > 0) ||
     (interest.similarUsersCount && interest.similarUsersCount > 0)
@@ -111,12 +120,27 @@ export function InterestConnectionsCard({
 
         {/* Action Button */}
         <Button
-          onClick={() => console.log("Connect to account clicked")}
+          onClick={() => setIsSlideoverOpen(true)}
           className="w-full bg-[#1B2438] hover:bg-[#1B2438]/90 text-white mt-6"
         >
           Connect to customer account
         </Button>
       </CardContent>
+
+      {/* Slide-over */}
+      <Sheet open={isSlideoverOpen} onOpenChange={setIsSlideoverOpen}>
+        <SheetContent>
+          <SheetHeader>
+            <SheetTitle>Connect to customer account</SheetTitle>
+            <SheetDescription>
+              Connect this interest to a new or existing customer account.
+            </SheetDescription>
+          </SheetHeader>
+          <div className="mt-6">
+            {/* Content will go here */}
+          </div>
+        </SheetContent>
+      </Sheet>
     </Card>
   )
 }
