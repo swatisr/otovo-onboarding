@@ -33,7 +33,7 @@ export function InterestConnectionsCard({
   return (
     <Card className="w-full max-w-md">
       <CardHeader>
-        <CardTitle>Interest connection</CardTitle>
+        <CardTitle>Connect to customer account</CardTitle>
       </CardHeader>
       <CardContent className="space-y-6">
         {/* Alert Banner - Red warning with action link */}
@@ -42,15 +42,15 @@ export function InterestConnectionsCard({
             <AlertTriangle className="h-5 w-5 text-red-600 flex-shrink-0 mt-0.5" />
             <div className="flex-1 flex items-center justify-between gap-4">
               <p className="text-sm font-medium text-gray-900">
-                This interest similar to {interest.similarInterestsCount || 0}{" "}
-                other interest and {interest.similarUsersCount || 0} existing
-                users
+                This interest is similar to {interest.similarInterestsCount || 0}{" "}
+                other {interest.similarInterestsCount === 1 ? "interest" : "interests"} and {interest.similarUsersCount || 0} existing{" "}
+                {interest.similarUsersCount === 1 ? "user" : "users"}
               </p>
               <Button
                 variant="link"
                 size="sm"
                 onClick={() => console.log("Check and fix clicked")}
-                className="text-blue-600 hover:text-blue-700 p-0 h-auto font-normal"
+                className="text-blue-600 hover:text-blue-700 p-0 h-auto font-normal whitespace-nowrap"
               >
                 Check and fix
               </Button>
@@ -62,13 +62,13 @@ export function InterestConnectionsCard({
         <div className="space-y-4">
           <div className="flex items-center justify-between">
             <h3 className="text-sm font-semibold text-gray-900">
-              Details provided by Interest in the activation form
+              Details from activation form
             </h3>
             <Button
               variant="ghost"
               size="sm"
               onClick={() => console.log("Edit clicked")}
-              className="text-[#FE8F67] hover:text-[#FE8F67]/80"
+              className="text-blue-600 hover:text-blue-700 p-0 h-auto font-normal"
             >
               Edit
             </Button>
@@ -102,19 +102,19 @@ export function InterestConnectionsCard({
         {/* Connection Status Section */}
         <div className="space-y-2">
           <h3 className="text-sm font-semibold text-gray-900">
-            Connected customer account
+            Customer account connection
           </h3>
           <p className="text-sm text-gray-600">
-            Not connected to an account yet
+            No account connected
           </p>
         </div>
 
         {/* Action Button */}
         <Button
-          onClick={() => console.log("Assign account clicked")}
+          onClick={() => console.log("Connect to account clicked")}
           className="w-full bg-[#1B2438] hover:bg-[#1B2438]/90 text-white mt-6"
         >
-          Assign a customer account
+          Connect to customer account
         </Button>
       </CardContent>
     </Card>
