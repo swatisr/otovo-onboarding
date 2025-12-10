@@ -8,6 +8,7 @@ import {
 } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Separator } from "@/components/ui/separator"
+import { AlertTriangle } from "lucide-react"
 
 interface Interest {
   firstName: string
@@ -32,20 +33,27 @@ export function InterestConnectionsCard({
   return (
     <Card className="w-full max-w-md">
       <CardHeader>
-        <CardTitle>Customer Account Connect</CardTitle>
+        <CardTitle>Interest connection</CardTitle>
       </CardHeader>
       <CardContent className="space-y-6">
-        {/* Alert Banner - Improved contrast */}
+        {/* Alert Banner - Red warning with action link */}
         {hasSimilarMatches && (
-          <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 flex items-start gap-3">
-            <div className="h-5 w-5 rounded-full bg-black flex-shrink-0 mt-0.5" />
-            <div className="flex-1">
+          <div className="bg-red-50 border border-red-200 rounded-lg p-4 flex items-start gap-3">
+            <AlertTriangle className="h-5 w-5 text-red-600 flex-shrink-0 mt-0.5" />
+            <div className="flex-1 flex items-center justify-between gap-4">
               <p className="text-sm font-medium text-gray-900">
                 This interest similar to {interest.similarInterestsCount || 0}{" "}
                 other interest and {interest.similarUsersCount || 0} existing
                 users
               </p>
-              <p className="text-xs text-gray-600 mt-1">Check and take action</p>
+              <Button
+                variant="link"
+                size="sm"
+                onClick={() => console.log("Check and fix clicked")}
+                className="text-blue-600 hover:text-blue-700 p-0 h-auto font-normal"
+              >
+                Check and fix
+              </Button>
             </div>
           </div>
         )}
@@ -66,7 +74,7 @@ export function InterestConnectionsCard({
             </Button>
           </div>
 
-          {/* Contact Details - Better layout and spacing */}
+          {/* Contact Details - Name, Phone, Email order */}
           <div className="space-y-4">
             <div>
               <p className="text-xs font-semibold text-gray-900 mb-1.5">Name</p>
@@ -74,41 +82,39 @@ export function InterestConnectionsCard({
                 {interest.firstName} {interest.lastName}
               </p>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div>
-                <p className="text-xs font-semibold text-gray-900 mb-1.5">
-                  Email
-                </p>
-                <p className="text-sm text-gray-700">{interest.email}</p>
-              </div>
-              <div>
-                <p className="text-xs font-semibold text-gray-900 mb-1.5">
-                  Phone
-                </p>
-                <p className="text-sm text-gray-700">{interest.phone}</p>
-              </div>
+            <div>
+              <p className="text-xs font-semibold text-gray-900 mb-1.5">
+                Phone
+              </p>
+              <p className="text-sm text-gray-700">{interest.phone}</p>
+            </div>
+            <div>
+              <p className="text-xs font-semibold text-gray-900 mb-1.5">
+                Email
+              </p>
+              <p className="text-sm text-gray-700">{interest.email}</p>
             </div>
           </div>
         </div>
 
         <Separator />
 
-        {/* Connection Status Section - Better typography */}
+        {/* Connection Status Section */}
         <div className="space-y-2">
           <h3 className="text-sm font-semibold text-gray-900">
-            Account Connection Status
+            Connected customer account
           </h3>
           <p className="text-sm text-gray-600">
             Not connected to an account yet
           </p>
         </div>
 
-        {/* Action Button - Better spacing */}
+        {/* Action Button */}
         <Button
-          onClick={() => console.log("Connect to account clicked")}
+          onClick={() => console.log("Assign account clicked")}
           className="w-full bg-[#1B2438] hover:bg-[#1B2438]/90 text-white mt-6"
         >
-          Connect to a customer account
+          Assign a customer account
         </Button>
       </CardContent>
     </Card>
